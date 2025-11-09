@@ -1,67 +1,112 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MystAI — AI-Powered Fortune Platform</title>
-<link rel="stylesheet" href="assets/styles.css"></head><body>
-<!-- 🔮 MystAI Dynamic Status Banner -->
-<script>
-  // Sistem durumu ayarı (Paddle onayı geldiğinde sadece bu değişkeni "true" yap)
-  const isLive = false; // Şu an beta, Paddle onayı gelince true yap
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MystAI - AI-Powered Fortune Platform</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
 
-  // Beta mesajı (mevcut durum)
-  const betaMessage = `
-    <div id="status-banner" style="background: linear-gradient(90deg, #0b0b0b, #1a1a1a); color: #f5c542; text-align: center; padding: 12px 20px; font-family: 'Poppins', sans-serif; font-size: 15px; letter-spacing: 0.4px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.4);">
-      ⚡ <strong>MystAI Beta Notice:</strong> Our AI-powered fortune-telling platform is currently in <b>private beta testing</b>.<br>
-      The public launch will begin after final <b>compliance review by Paddle</b>. Stay tuned for updates!
+<body>
+  <!-- 🔮 MystAI Dynamic Status Banner -->
+  <script>
+    // Sistem durumu ayarı (Paddle onayı geldiğinde sadece bu değişkeni "true" yap)
+    const isLive = false; // Şu an beta, Paddle onayı gelince true yap
+
+    // Beta mesajı (mevcut durum)
+    const betaMessage = `
+      <div id="status-banner" style="background: linear-gradient(90deg, #0b0b0b, #1a1a1a); color: #f5c542; text-align: center; padding: 12px 20px; font-family: 'Poppins', sans-serif; font-size: 15px; letter-spacing: 0.4px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.4);">
+        ⚡ <strong>MystAI Beta Notice:</strong> Our AI-powered fortune-telling platform is currently in <b>private beta testing</b>.<br>
+        The public launch will begin after final <b>compliance review by Paddle</b>. Stay tuned for updates!
+      </div>
+    `;
+
+    // Canlı mesaj (Paddle onayı sonrası)
+    const liveMessage = `
+      <div id="status-banner" style="background: linear-gradient(90deg, #111, #191919); color: #3fffbf; text-align: center; padding: 12px 20px; font-family: 'Poppins', sans-serif; font-size: 15px; letter-spacing: 0.4px; border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 2px 8px rgba(0,0,0,0.4);">
+        🚀 <strong>MystAI is Now Live!</strong> Experience AI-powered fortune readings in English & Turkish.<br>
+        Secure global payments are available via <b>Paddle, Stripe & İyzico</b>.
+      </div>
+    `;
+
+    // Sayfanın en üstüne banner'ı yerleştir
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.insertAdjacentHTML("afterbegin", isLive ? liveMessage : betaMessage);
+    });
+  </script>
+
+  <!-- 🧭 Navigation Bar -->
+  <nav class="container">
+    <div class="brand">
+      <img class="logo" src="assets/logo.jpg" alt="MystAI logo" />
+      <span class="badge">MystAI.ai</span>
     </div>
-  `;
-
-  // Canlı mesaj (Paddle onayı sonrası)
-  const liveMessage = `
-    <div id="status-banner" style="background: linear-gradient(90deg, #111, #191919); color: #3fffbf; text-align: center; padding: 12px 20px; font-family: 'Poppins', sans-serif; font-size: 15px; letter-spacing: 0.4px; border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 2px 8px rgba(0,0,0,0.4);">
-      🚀 <strong>MystAI is Now Live!</strong> Experience AI-powered fortune readings in English & Turkish.<br>
-      Secure global payments are available via <b>Paddle, Stripe & İyzico</b>.
+    <div class="lang">
+      <button class="btn" onclick="setLang('en')">EN</button>
+      <button class="btn" onclick="setLang('tr')">TR</button>
     </div>
-  `;
+    <div class="nav-links">
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#privacy" data-i18n="nav_privacy">Privacy</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+  </nav>
 
-  // Sayfanın en üstüne banner'ı yerleştir
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.insertAdjacentHTML("afterbegin", isLive ? liveMessage : betaMessage);
-  });
-</script>
+  <!-- 🌙 Hero Section -->
+  <section class="container hero">
+    <div class="copy">
+      <h1 data-i18n="hero_title">Discover the Future with AI</h1>
+      <p data-i18n="hero_sub">
+        International AI-powered readings — coffee, tarot, palm, energy, dreams.
+        Instant, private, and beautifully presented.
+      </p>
+      <a href="#contact" class="btn" data-i18n="cta_contact">Contact</a>
+    </div>
+  </section>
 
-<nav class="container"><div class="brand"><img class="logo" src="assets/logo.jpg" alt="MystAI logo"><span class="badge">MystAI.ai</span></div>
-<div><a href="index.html" data-i18n="nav_home">Home</a><a href="pricing.html" data-i18n="nav_pricing">Pricing</a><a href="privacy.html" data-i18n="nav_privacy">Privacy</a><a href="terms.html" data-i18n="nav_terms">Terms</a><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
-<div class="lang"><button id="enBtn" onclick="setLang('en')">EN</button><button id="trBtn" onclick="setLang('tr')">TR</button></div></nav>
-<section class="container hero"><div class="copy"><h1 data-i18n="hero_title">Discover the Future with AI</h1>
-<p class="small" data-i18n="hero_sub">International AI-powered readings — coffee, tarot, palm, energy, dreams. Instant, private, and beautifully presented.</p>
-<div class="cta"><a href="pricing.html" class="btn" data-i18n="cta_get_started">Get Started</a><a href="contact.html" class="btn secondary" data-i18n="cta_contact">Contact Sales</a></div>
-<hr class="sep"><div class="grid-2"><div class="card"><h3 data-i18n="block_secure_title">Secure & Global</h3>
-<ul class="features check"><li data-i18n="f1">GDPR/KVKK aligned privacy</li><li data-i18n="f2">Paddle / Stripe ready</li><li data-i18n="f3">English & Turkish UI</li></ul></div>
-<div class="card"><h3 data-i18n="block_ai_title">AI Readings</h3><ul class="features check"><li data-i18n="f4">Coffee & Tarot</li><li data-i18n="f5">Dream & Energy</li><li data-i18n="f6">Personalized insights</li></ul></div></div></div>
-<div class="visual"><img class="responsive" src="assets/hero-banner.png" alt="MystAI Hero"></div></section>
-<section class="container"><div class="center small"><img class="responsive" src="assets/footer.png" alt="MystAI footer art"></div></section>
-<footer>© 2025 MystAI by GALAXY · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="pricing.html">Pricing</a></footer>
-<script>
-const translations={nav_home:{en:"Home",tr:"Ana Sayfa"},nav_pricing:{en:"Pricing",tr:"Ücretlendirme"},
-nav_privacy:{en:"Privacy",tr:"Gizlilik"},nav_terms:{en:"Terms",tr:"Şartlar"},nav_contact:{en:"Contact",tr:"İletişim"},
-hero_title:{en:"Discover the Future with AI",tr:"Geleceği Yapay Zekâ ile Keşfet"},
-hero_sub:{en:"International AI-powered readings — coffee, tarot, palm, energy, dreams. Instant, private, and beautifully presented.",tr:"Uluslararası yapay zekâ destekli fal deneyimi — kahve, tarot, el, enerji, rüya. Anında, gizli ve şık."},
-cta_get_started:{en:"Get Started",tr:"Hemen Başla"},cta_contact:{en:"Contact Sales",tr:"Satış ile İletişime Geç"},
-block_secure_title:{en:"Secure & Global",tr:"Güvenli ve Global"},block_ai_title:{en:"AI Readings",tr:"Yapay Zekâ Fal"},
-f1:{en:"GDPR/KVKK aligned privacy",tr:"GDPR/KVKK uyumlu gizlilik"},f2:{en:"Paddle / Stripe ready",tr:"Paddle / Stripe hazır"},
-f3:{en:"English & Turkish UI",tr:"İngilizce & Türkçe arayüz"},f4:{en:"Coffee & Tarot",tr:"Kahve & Tarot"},
-f5:{en:"Dream & Energy",tr:"Rüya & Enerji"},f6:{en:"Personalized insights",tr:"Kişiye özel içgörüler"}};
-</script>
-<script>function setLang(lang){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key=el.getAttribute('data-i18n');const tr=translations[key]||{};
-    el.innerText=(lang==='tr'?tr.tr:tr.en)||el.innerText;});
-  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
-    const key=el.getAttribute('data-i18n-html');const tr=translations[key]||{};
-    el.innerHTML=(lang==='tr'?tr.tr:tr.en)||el.innerHTML;});
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(lang+'Btn').classList.add('active');
-  localStorage.setItem('mystai_lang',lang);
-}
-const stored=localStorage.getItem('mystai_lang')||'en';
-document.addEventListener('DOMContentLoaded',()=>setLang(stored));</script></body></html>
+  <!-- 💎 Info Cards -->
+  <section class="container info">
+    <div class="grid">
+      <div class="card" data-i18n="block_ai">
+        <h3>AI Readings</h3>
+        <p>Secure & Global</p>
+      </div>
+      <div class="card" data-i18n="block_ui">
+        <h3>English & Turkish UI</h3>
+        <p>Paddle / Stripe ready</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📜 Footer -->
+  <footer class="container">
+    <div class="center small">
+      <img class="footer-logo" src="assets/footer.png" alt="MystAI footer art" />
+      <p>© 2025 MystAI by GALAXY</p>
+      <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="pricing.html">Pricing</a>
+    </div>
+  </footer>
+
+  <!-- 🌍 Dil sistemi -->
+  <script>
+    const translations = {
+      nav_home: { en: "Home", tr: "Ana Sayfa" },
+      nav_pricing: { en: "Pricing", tr: "Ücretlendirme" },
+      nav_privacy: { en: "Privacy", tr: "Gizlilik" },
+      hero_title: { en: "Discover the Future with AI", tr: "Geleceği Yapay Zeka ile Keşfet" },
+      hero_sub: {
+        en: "International AI-powered readings — coffee, tarot, palm, energy, dreams. Instant, private, and beautifully presented.",
+        tr: "Uluslararası yapay zeka destekli fal yorumları — kahve, tarot, el, enerji, rüya. Hızlı, gizli ve zarif bir şekilde sunulur."
+      },
+      cta_contact: { en: "Contact", tr: "İletişim" }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[key]) el.innerHTML = translations[key][lang];
+      });
+    }
+  </script>
+</body>
+</html>
