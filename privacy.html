@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MystAI — Privacy Policy</title><link rel="stylesheet" href="assets/styles.css"></head><body>
+<nav class="container"><div class="brand"><img class="logo" src="assets/logo.jpg" alt="MystAI logo"><span class="badge">MystAI.ai</span></div>
+<div><a href="index.html" data-i18n="nav_home">Home</a><a href="pricing.html" data-i18n="nav_pricing">Pricing</a><a href="privacy.html" data-i18n="nav_privacy">Privacy</a><a href="terms.html" data-i18n="nav_terms">Terms</a><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
+<div class="lang"><button id="enBtn" onclick="setLang('en')">EN</button><button id="trBtn" onclick="setLang('tr')">TR</button></div></nav>
+<section class="container card"><h1 data-i18n="title">Privacy Policy</h1><p class="small" data-i18n="updated">Last updated: November 2025</p>
+<p data-i18n="p1">MystAI (“we”) respects your privacy. This policy explains how we collect, use, and protect personal data.</p>
+<h3 data-i18n="h_collect">Information We Collect</h3><ul>
+<li data-i18n="c1">Account data (email, name)</li><li data-i18n="c2">Usage & analytics data</li><li data-i18n="c3">Payment info processed by partners (we do not store card data)</li></ul>
+<h3 data-i18n="h_use">How We Use Data</h3><ul>
+<li data-i18n="u1">Provide AI readings and improve accuracy</li><li data-i18n="u2">Process payments and prevent fraud</li><li data-i18n="u3">Provide support and product updates</li></ul>
+<h3 data-i18n="h_rights">Your Rights</h3><ul><li data-i18n="r1">Access, correction, deletion</li><li data-i18n="r2">Opt-out from analytics and marketing emails</li></ul>
+<h3 data-i18n="h_contact">Contact</h3><p data-i18n="contact">Questions? Email <a href="mailto:support@mystai.ai">support@mystai.ai</a></p></section>
+<footer>© 2025 MystAI by GALAXY</footer>
+<script>
+const translations={nav_home:{en:"Home",tr:"Ana Sayfa"},nav_pricing:{en:"Pricing",tr:"Ücretlendirme"},nav_privacy:{en:"Privacy",tr:"Gizlilik"},nav_terms:{en:"Terms",tr:"Şartlar"},nav_contact:{en:"Contact",tr:"İletişim"},
+title:{en:"Privacy Policy",tr:"Gizlilik Politikası"},updated:{en:"Last updated: November 2025",tr:"Son güncelleme: Kasım 2025"},
+p1:{en:"MystAI (“we”) respects your privacy. This policy explains how we collect, use, and protect personal data.",tr:"MystAI (“biz”) gizliliğinize saygı duyar. Bu politika kişisel verilerin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar."},
+h_collect:{en:"Information We Collect",tr:"Topladığımız Bilgiler"},c1:{en:"Account data (email, name)",tr:"Hesap verileri (e-posta, ad)"},c2:{en:"Usage & analytics data",tr:"Kullanım ve analitik veriler"},c3:{en:"Payment info processed by partners (we do not store card data)",tr:"Ödeme bilgileri iş ortakları tarafından işlenir (kart verisi saklamayız)"},
+h_use:{en:"How We Use Data",tr:"Verileri Nasıl Kullanırız"},u1:{en:"Provide AI readings and improve accuracy",tr:"Yapay zekâ yorumları sunmak ve doğruluğu geliştirmek"},u2:{en:"Process payments and prevent fraud",tr:"Ödemeleri işlemek ve sahteciliği önlemek"},u3:{en:"Provide support and product updates",tr:"Destek sağlamak ve ürün güncellemeleri sunmak"},
+h_rights:{en:"Your Rights",tr:"Haklarınız"},r1:{en:"Access, correction, deletion",tr:"Erişim, düzeltme, silme"},r2:{en:"Opt-out from analytics and marketing emails",tr:"Analitik ve pazarlama e-postalarından vazgeçme"},
+h_contact:{en:"Contact",tr:"İletişim"},contact:{en:'Questions? Email <a href="mailto:support@mystai.ai">support@mystai.ai</a>',tr:'Sorular için: <a href="mailto:support@mystai.ai">support@mystai.ai</a>'}};
+</script><script>function setLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');const tr=translations[key]||{};
+    el.innerText=(lang==='tr'?tr.tr:tr.en)||el.innerText;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const key=el.getAttribute('data-i18n-html');const tr=translations[key]||{};
+    el.innerHTML=(lang==='tr'?tr.tr:tr.en)||el.innerHTML;});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(lang+'Btn').classList.add('active');
+  localStorage.setItem('mystai_lang',lang);
+}
+const stored=localStorage.getItem('mystai_lang')||'en';
+document.addEventListener('DOMContentLoaded',()=>setLang(stored));</script></body></html>

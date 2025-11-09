@@ -1,0 +1,24 @@
+:root{--bg:#0b0c1d;--panel:#141735;--gold:#d4af37;--purple:#6a0dad;--text:#eaeaea}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Poppins,system-ui,Arial,sans-serif;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+nav .brand{display:flex;gap:12px;align-items:center}
+nav img.logo{height:40px;width:auto;border-radius:10px}
+nav a{color:var(--text);text-decoration:none;margin:0 10px;opacity:.9}nav a:hover{color:var(--gold)}
+.lang{display:flex;gap:8px}.lang button{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:6px 10px;border-radius:10px;cursor:pointer}
+.lang button.active{background:var(--gold);color:#000}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;padding:40px 0}
+.hero .copy h1{color:var(--gold);font-size:40px;margin:0 0 12px}.hero .copy p{opacity:.9}
+.cta{display:flex;gap:12px;margin-top:20px}
+.btn{background:var(--purple);border:1px solid var(--gold);color:#fff;padding:12px 18px;border-radius:14px;font-weight:600;text-decoration:none;display:inline-block}
+.btn.secondary{background:transparent;color:var(--gold)}
+.card{background:var(--panel);border:1px solid #2a2d55;border-radius:16px;padding:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.features li{margin:6px 0}footer{margin-top:40px;padding:30px 0;border-top:1px solid #222;text-align:center;opacity:.8}
+.center{text-align:center}img.responsive{max-width:100%;height:auto;border-radius:16px;border:1px solid #2a2d55}.small{font-size:.92rem}
+hr.sep{border:0;border-top:1px solid #2a2d55;margin:24px 0}.badge{display:inline-block;background:#0f1130;border:1px solid var(--gold);padding:6px 10px;border-radius:999px;color:var(--gold);font-weight:600}
+.plan{background:var(--panel);border:1px solid #2a2d55;border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.plan h3{color:var(--gold);margin:6px 0}.price{font-size:28px;color:var(--gold);margin:8px 0}ul.check{list-style:'✔ ';padding-left:16px}
+.hero img{box-shadow:0 0 40px rgba(212,175,55,.15)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}
